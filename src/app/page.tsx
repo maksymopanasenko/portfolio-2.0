@@ -1,7 +1,16 @@
-import Image from "next/image";
+import { Page, getPages } from "@/api/queries/getPage";
 
-export default function Home() {
+interface GetPagesResult {
+  pages: Page[];
+}
+
+export const Home = async () => {
+  const { pages }: GetPagesResult = await getPages();
+  const homePage = pages.find((page) => !page.slug);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between"></main>
   );
 }
+
+export default Home;
