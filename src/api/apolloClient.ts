@@ -1,7 +1,7 @@
 import { ApolloClient, from, HttpLink, InMemoryCache } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
 
-const customFetch = async (uri: RequestInfo | URL, options?: RequestInit) => {  
+const customFetch = async (uri: RequestInfo | URL, options?: RequestInit) => {
   try {
     (options!.headers as Record<string, string>).Authorization = `${process.env.NEXT_PORTFOLIO_HYGRAPH_TOKEN}`;
     return fetch(uri, options);
@@ -17,8 +17,8 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
       console.log(
         `[GraphQL error]: Message: ${message}, Location: ${
           locations ? JSON.stringify(locations) : locations
-        }, Path: ${path}`
-      )
+        }, Path: ${path}`,
+      ),
     );
   if (networkError) console.log(`[Network error]: ${networkError}`);
 });
