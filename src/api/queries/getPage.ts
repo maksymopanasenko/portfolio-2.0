@@ -9,6 +9,19 @@ export const GET_PAGES = gql`
       slug
       components {
         id
+        title
+        description
+        type
+        buttons {
+          title
+        }
+        navigation {
+          links {
+            id
+            title
+            anchorId
+          }
+        }
       }
     }
   }
@@ -19,6 +32,7 @@ export interface ComponentGeneral {
   title: string;
   description: string;
   type: string;
+  navigation: Navigation;
 }
 
 export interface Page {
@@ -26,6 +40,16 @@ export interface Page {
   title: string;
   slug: string;
   components: ComponentGeneral[];
+}
+
+export interface Navigation {
+  links: NavigationLink[];
+}
+
+export interface NavigationLink {
+  id: string;
+  title: string;
+  anchorId: string;
 }
 
 interface GetPagesData {
