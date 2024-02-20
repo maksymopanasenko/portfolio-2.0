@@ -11,9 +11,7 @@ const Home = async () => {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <div className='px-5'>
-        {homePage?.components.map(component => getComponent(component))}
-      </div>
+      <div>{homePage?.components.map(component => getComponent(component))}</div>
     </main>
   );
 };

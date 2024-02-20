@@ -13,13 +13,23 @@ export const GET_PAGES = gql`
         description
         type
         buttons {
+          id
           title
+          link
+        }
+        images {
+          id
+          alt
+          type
+          image {
+            url
+          }
         }
         navigation {
           links {
             id
-            title
             anchorId
+            title
           }
         }
       }
@@ -33,6 +43,12 @@ export interface ComponentGeneral {
   description: string;
   type: string;
   navigation: Navigation;
+  images: ImageComponent[];
+  buttons: {
+    id: string;
+    title: string;
+    link: string;
+  }[];
 }
 
 export interface Page {
@@ -40,6 +56,21 @@ export interface Page {
   title: string;
   slug: string;
   components: ComponentGeneral[];
+}
+
+export interface ImageComponent {
+  id: string;
+  alt: string;
+  type: string;
+  image: {
+    url: string;
+  };
+}
+
+export enum ImageType {
+  primary = 'primary',
+  secondary = 'secondary',
+  background = 'background',
 }
 
 export interface Navigation {
