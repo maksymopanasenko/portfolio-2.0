@@ -10,7 +10,7 @@ const About: FC<AboutProps> = ({ component }) => {
   const mainImage = component.images.find(img => img.type === ImageType.primary);
 
   return (
-    <section className="py-20 lg:py-28" id="about">
+    <section className="pt-20 lg:pt-28" id="about">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 grid-rows-48 gap-6 lg:grid-cols-about lg:grid-rows-1">
           <div className="lg:order-2">

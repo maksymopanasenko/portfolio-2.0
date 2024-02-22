@@ -7,42 +7,66 @@ export const GET_PAGES = gql`
       id
       title
       slug
-      components {
-        id
-        title
-        subTitle
-        description
-        type
-        buttons {
+      components(first: 100) {
+        ... on ComponentGeneral {
           id
           title
-          link
-        }
-        images {
-          id
-          alt
-          type
-          image {
-            url
-          }
-        }
-        navigation {
-          links {
-            id
-            anchorId
-            title
-          }
-        }
-        subComponents {
-          id
-          title
+          subTitle
           description
+          type
+          buttons {
+            id
+            title
+            link
+          }
           images {
             id
             alt
             type
             image {
               url
+            }
+          }
+          navigation {
+            links {
+              id
+              anchorId
+              title
+            }
+          }
+          nestedComponents {
+            ... on ComponentGeneral {
+              id
+              title
+              subTitle
+              description
+              type
+              buttons {
+                id
+                title
+                link
+              }
+              images {
+                id
+                alt
+                type
+                image {
+                  url
+                }
+              }
+            }
+          }
+          subComponents {
+            id
+            title
+            description
+            images {
+              id
+              alt
+              type
+              image {
+                url
+              }
             }
           }
         }
@@ -64,6 +88,7 @@ export interface ComponentGeneral {
     title: string;
     link: string;
   }[];
+  nestedComponents: ComponentGeneral[];
   subComponents: SubComponent[];
 }
 
