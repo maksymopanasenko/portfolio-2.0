@@ -15,7 +15,7 @@ const Hero: FC<HeroProps> = ({ component }) => {
       style={{ backgroundImage: `url(${bgImg?.image.url})` }}
     >
       <div className="container mx-auto 2xl:h-screen pt-44 pb-20 xl:py-44 flex flex-col items-start justify-end text-shadow">
-        <h2 className="relative z-10 font-bold pb-4 pl-4 circle">{component.description}</h2>
+        <h2 className="relative z-10 font-bold pb-4 pl-4 circle">{component.subTitle}</h2>
         <h1 className="font-bold md:leading-tight text-3xl md:text-5xl max-w-80 md:max-w-xl text-neutral-800">
           {component.title}
         </h1>

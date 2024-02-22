@@ -26,6 +26,16 @@ body {
   background: #ffa501;
 }
 
+.underlined::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 60px;
+  background: #ffa501;
+}
+
 .text-shadow {
   text-shadow: 0 1px 3px #fff;
 }

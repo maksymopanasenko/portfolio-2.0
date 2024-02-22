@@ -15,13 +15,18 @@ const config: Config = {
       },
     },
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
       backgroundPosition: {
         '60': '60%',
         half: '50%',
+      },
+      gridTemplateRows: {
+        '48': 'auto 480px',
+      },
+      gridTemplateColumns: {
+        about: '400px 1fr',
+      },
+      objectPosition: {
+        'center-top': '0 25%',
       },
     },
   },

@@ -10,6 +10,7 @@ export const GET_PAGES = gql`
       components {
         id
         title
+        subTitle
         description
         type
         buttons {
@@ -32,6 +33,19 @@ export const GET_PAGES = gql`
             title
           }
         }
+        subComponents {
+          id
+          title
+          description
+          images {
+            id
+            alt
+            type
+            image {
+              url
+            }
+          }
+        }
       }
     }
   }
@@ -40,6 +54,7 @@ export const GET_PAGES = gql`
 export interface ComponentGeneral {
   id: string;
   title: string;
+  subTitle: string;
   description: string;
   type: string;
   navigation: Navigation;
@@ -49,6 +64,15 @@ export interface ComponentGeneral {
     title: string;
     link: string;
   }[];
+  subComponents: SubComponent[];
+}
+
+export interface SubComponent {
+  id: string;
+  title: string;
+  description: string;
+  type: string;
+  images: ImageComponent[];
 }
 
 export interface Page {
