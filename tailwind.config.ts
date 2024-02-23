@@ -24,6 +24,7 @@ const config: Config = {
       },
       gridTemplateColumns: {
         about: '400px 1fr',
+        mobile: '300px',
       },
       objectPosition: {
         'center-top': '0 25%',
