@@ -13,6 +13,18 @@ body {
   }
 }
 
+.circle-mini::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  background-color: #ffa501;
+  border-radius: 100%;
+}
+
 .circle::before {
   content: '';
   position: absolute;
@@ -49,4 +61,24 @@ body {
 
 .text-shadow {
   text-shadow: 0 1px 3px #fff;
+}
+
+.vertical-stick::after {
+  content: '';
+  position: absolute;
+  top: -63px;
+  left: 0;
+  background-color: #000;
+  width: 1px;
+  height: calc(100% + 63px);
+}
+
+.horizontal-stick::before {
+  content: '';
+  height: 1px;
+  width: 45px;
+  position: absolute;
+  top: 14px;
+  left: 0;
+  background-color: #000;
 }

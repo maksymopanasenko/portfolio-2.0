@@ -54,11 +54,26 @@ export const GET_PAGES = gql`
                   url
                 }
               }
+              subComponents {
+                id
+                title
+                subTitle
+                description
+                images {
+                  id
+                  alt
+                  type
+                  image {
+                    url
+                  }
+                }
+              }
             }
           }
           subComponents {
             id
             title
+            subTitle
             description
             images {
               id
@@ -95,8 +110,8 @@ export interface ComponentGeneral {
 export interface SubComponent {
   id: string;
   title: string;
+  subTitle: string;
   description: string;
-  type: string;
   images: ImageComponent[];
 }
 
