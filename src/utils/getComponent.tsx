@@ -4,6 +4,7 @@ import ExperienceAndEducation from '@/components/ExperienceAndEducation';
 import ContentColumn from '@/components/ExperienceAndEducation/ContentColumn';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import Skills from '@/components/Skills';
 import Technologies from '@/components/Technologies';
 
 export const getComponent = (component: ComponentGeneral) => {
@@ -20,6 +21,8 @@ export const getComponent = (component: ComponentGeneral) => {
       return <ContentColumn key={component.id} component={component} />;
     case 'technologies':
       return <Technologies key={component.id} component={component} />;
+    case 'skills':
+      return <Skills key={component.id} component={component} />;
     default:
       break;
   }

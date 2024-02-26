@@ -10,8 +10,8 @@ const Home = async () => {
   const homePage = pages.find(page => !page.slug);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <div>{homePage?.components.map(component => getComponent(component))}</div>
+    <main className="min-h-screen">
+      <>{homePage?.components.map(component => getComponent(component))}</>
     </main>
   );
 };

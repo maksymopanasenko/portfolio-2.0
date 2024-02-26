@@ -23,7 +23,7 @@ const Header: FC<HeaderProps> = ({ component }) => {
       <div
         className={`fixed bg-slate-50/50 top-0 bottom-0 right-0 left-0 transition-all duration-500 ${visibleOverlay}`}
       >
-        <div className={`h-screen w-screen absolute transition-all duration-700 ${openedMenu}`}>
+        <div className={`h-screen w-full absolute transition-all duration-700 ${openedMenu}`}>
           <div className="h-screen p-10 relative w-72 lg:w-96 bg-amber-500">
             <CgClose className="absolute top-5 right-5 cursor-pointer size-8 md:size-12" onClick={openMenu} />
             <HeaderMenu navigation={component.navigation.links} />
