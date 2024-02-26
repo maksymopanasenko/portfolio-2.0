@@ -82,3 +82,14 @@ body {
   left: 0;
   background-color: #000;
 }
+
+.animation {
+  animation-name: grow;
+  animation-duration: 3s;
+}
+
+@keyframes grow {
+  0% {
+    width: 0;
+  }
+}
