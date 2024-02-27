@@ -10,7 +10,7 @@ const Home = async () => {
   const homePage = pages.find(page => !page.slug);
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen pb-20">
       <>{homePage?.components.map(component => getComponent(component))}</>
     </main>
   );

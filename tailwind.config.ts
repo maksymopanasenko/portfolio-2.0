@@ -21,6 +21,7 @@ const config: Config = {
       },
       gridTemplateRows: {
         '48': 'auto 480px',
+        'r-48': '480px auto',
       },
       gridTemplateColumns: {
         about: '400px 1fr',
@@ -28,6 +29,9 @@ const config: Config = {
       },
       objectPosition: {
         'center-top': '0 25%',
+      },
+      height: {
+        '128': '32rem',
       },
     },
   },
