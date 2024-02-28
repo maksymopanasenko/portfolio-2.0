@@ -1,5 +1,7 @@
 import { ComponentGeneral, ImageType } from '@/api/queries/getPage';
+import { getComponent } from '@/utils/getComponent';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FC } from 'react';
 
 interface ContactProps {
@@ -23,10 +25,20 @@ const Contact: FC<ContactProps> = ({ component }) => {
               className="object-cover w-full h-full object-top"
             />
           </div>
-          <div>
+          <div className="w-full">
             <h3 className="relative z-10 font-bold pb-4 pl-4 circle">{component.subTitle}</h3>
             <h2 className="relative font-bold text-2xl pb-4 pt-2 underlined">{component.title}</h2>
             <p className="font-bold py-6">{component.description}</p>
+            <ul className="flex gap-7">
+              {component.subComponents.map(({ id, title, images }) => (
+                <li key={id}>
+                  <Link href={title} target="_blank">
+                    <Image src={images[0].image.url} alt={images[0].alt} width={30} height={30} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            {component.nestedComponents.map(component => getComponent(component))}
           </div>
         </div>
       </div>

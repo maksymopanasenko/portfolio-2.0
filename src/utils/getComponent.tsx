@@ -1,6 +1,7 @@
 import { ComponentGeneral } from '@/api/queries/getPage';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
+import ContactForm from '@/components/Contact/ContactForm';
 import ExperienceAndEducation from '@/components/ExperienceAndEducation';
 import ContentColumn from '@/components/ExperienceAndEducation/ContentColumn';
 import Header from '@/components/Header';
@@ -26,6 +27,8 @@ export const getComponent = (component: ComponentGeneral) => {
       return <Skills key={component.id} component={component} />;
     case 'contact':
       return <Contact key={component.id} component={component} />;
+    case 'contactForm':
+      return <ContactForm key={component.id} component={component} />;
     default:
       break;
   }

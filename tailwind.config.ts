@@ -5,6 +5,7 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/utils/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     container: {
@@ -22,6 +23,7 @@ const config: Config = {
       gridTemplateRows: {
         '48': 'auto 480px',
         'r-48': '480px auto',
+        contact: '45px 45px 190px auto auto',
       },
       gridTemplateColumns: {
         about: '400px 1fr',
@@ -35,6 +37,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
+
 export default config;

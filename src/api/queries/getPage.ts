@@ -17,7 +17,9 @@ export const GET_PAGES = gql`
           buttons {
             id
             title
-            link
+            page {
+              slug
+            }
           }
           images {
             id
@@ -44,7 +46,9 @@ export const GET_PAGES = gql`
               buttons {
                 id
                 title
-                link
+                page {
+                  slug
+                }
               }
               images {
                 id
@@ -59,6 +63,14 @@ export const GET_PAGES = gql`
                 title
                 subTitle
                 description
+                type
+                button {
+                  id
+                  title
+                  page {
+                    slug
+                  }
+                }
                 images {
                   id
                   alt
@@ -75,6 +87,7 @@ export const GET_PAGES = gql`
             title
             subTitle
             description
+            type
             images {
               id
               alt
@@ -98,13 +111,15 @@ export interface ComponentGeneral {
   type: string;
   navigation: Navigation;
   images: ImageComponent[];
-  buttons: {
-    id: string;
-    title: string;
-    link: string;
-  }[];
+  buttons: ButtonType[];
   nestedComponents: ComponentGeneral[];
   subComponents: SubComponent[];
+}
+
+export interface ButtonType {
+  id: string;
+  title: string;
+  page: Page;
 }
 
 export interface SubComponent {
@@ -112,6 +127,8 @@ export interface SubComponent {
   title: string;
   subTitle: string;
   description: string;
+  type: string;
+  button: ButtonType;
   images: ImageComponent[];
 }
 
