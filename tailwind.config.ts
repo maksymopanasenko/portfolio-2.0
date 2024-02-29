@@ -24,6 +24,7 @@ const config: Config = {
         '48': 'auto 480px',
         'r-48': '480px auto',
         contact: '45px 45px 190px auto auto',
+        'contact-lg': '45px 190px auto',
       },
       gridTemplateColumns: {
         about: '400px 1fr',
@@ -33,7 +34,7 @@ const config: Config = {
         'center-top': '0 25%',
       },
       height: {
-        '128': '32rem',
+        '128': '46rem',
       },
     },
   },

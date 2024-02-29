@@ -5,10 +5,6 @@ export const getFormElement = (element: SubComponent) => {
   switch (element.type) {
     case 'input':
       return (
-        // <label key={element.id} className="relative">
-        //   <span className="absolute bg-neutral-0 p-2">{element.title}</span>
-        //   <input type="text" className="border border-red-500 w-full px-5" />
-        // </label>
         <div key={element.id} className="relative">
           <label htmlFor={element.id} className="absolute bottom-8 left-3 bg-white px-2">
             {element.title}
@@ -17,23 +13,32 @@ export const getFormElement = (element: SubComponent) => {
             type="text"
             id={element.id}
             name={element.subTitle}
-            className="border w-full px-5 h-full outline-none"
+            className="border w-full px-5 h-full focus:border-transparent focus:outline-none focus:ring-amber-500"
           />
         </div>
       );
     case 'textArea':
       return (
-        <div key={element.id} className="relative">
+        <div key={element.id} className="relative lg:col-span-2">
           <label htmlFor={element.id} className="absolute top-[-10px] left-3 bg-white px-2">
             {element.title}
           </label>
-          <textarea id={element.id} name={element.subTitle} className="border w-full p-5 resize-none h-full" />
+          <textarea
+            id={element.id}
+            name={element.subTitle}
+            className="border w-full p-5 resize-none h-full focus:border-transparent focus:outline-none focus:ring-amber-500"
+          />
         </div>
       );
     case 'checkbox':
       return (
-        <div key={element.id} className="relative">
-          <input type="checkbox" id={element.id} name={element.subTitle} />
+        <div key={element.id} className="relative lg:order-1 lg:self-center">
+          <input
+            type="checkbox"
+            id={element.id}
+            name={element.subTitle}
+            className="border-black rounded focus:border-black focus:outline-none focus:ring-white"
+          />
           <label htmlFor={element.id} className="px-2">
             {element.title}
           </label>

@@ -14,8 +14,8 @@ const Contact: FC<ContactProps> = ({ component }) => {
   return (
     <section className="pt-20 lg:pt-28" id="contact">
       <div className="container mx-auto">
-        <div className="md:flex md:gap-6">
-          <div className="mb-6 lg:p-0 h-96 sm:h-128 md:mb-0 md:w-2/5 lg:h-full">
+        <div className="md:flex md:gap-6 xl:gap-10">
+          <div className="mb-6 lg:p-0 h-96 sm:h-128 md:mb-0 md:w-3/5 lg:h-full lg:w-9/12 xl:w-2/3 2xl:w-[55%]">
             <Image
               src={mainImage!.image.url}
               alt={mainImage!.alt}
