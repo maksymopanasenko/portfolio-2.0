@@ -17,6 +17,7 @@ export const GET_PAGES = gql`
           buttons {
             id
             title
+            link
             page {
               slug
             }
@@ -46,6 +47,7 @@ export const GET_PAGES = gql`
               buttons {
                 id
                 title
+                link
                 page {
                   slug
                 }
@@ -119,6 +121,7 @@ export interface ComponentGeneral {
 export interface ButtonType {
   id: string;
   title: string;
+  link: string;
   page: Page;
 }
 

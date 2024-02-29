@@ -1,4 +1,4 @@
-import { ComponentGeneral, ImageType } from '@/api/queries/getPage';
+import { ComponentGeneral } from '@/api/queries/getPage';
 import { getFormElement } from '@/utils/getFormElement';
 import { FC } from 'react';
 
