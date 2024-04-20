@@ -1,4 +1,5 @@
 import { ComponentGeneral, ImageType } from '@/api/queries/getPage';
+import getBase64 from '@/utils/getBase64';
 import Image from 'next/image';
 import { FC } from 'react';
 
@@ -6,8 +7,9 @@ interface AboutProps {
   component: ComponentGeneral;
 }
 
-const About: FC<AboutProps> = ({ component }) => {
+const About: FC<AboutProps> = async ({ component }) => {
   const mainImage = component.images.find(img => img.type === ImageType.primary);
+  const myImage = await getBase64(mainImage!.image.url);
 
   return (
     <section className="pt-20 lg:pt-28" id="about">
@@ -43,10 +45,12 @@ const About: FC<AboutProps> = ({ component }) => {
             <Image
               src={mainImage!.image.url}
               alt={mainImage!.alt}
-              width={300}
-              height={500}
+              width={mainImage!.image.width}
+              height={mainImage!.image.height}
               quality={100}
               className="object-cover w-full h-full object-center-top"
+              blurDataURL={myImage}
+              placeholder="blur"
             />
           </div>
         </div>

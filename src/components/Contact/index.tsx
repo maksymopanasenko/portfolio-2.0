@@ -1,4 +1,5 @@
 import { ComponentGeneral, ImageType } from '@/api/queries/getPage';
+import getBase64 from '@/utils/getBase64';
 import { getComponent } from '@/utils/getComponent';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,8 +9,9 @@ interface ContactProps {
   component: ComponentGeneral;
 }
 
-const Contact: FC<ContactProps> = ({ component }) => {
+const Contact: FC<ContactProps> = async ({ component }) => {
   const mainImage = component.images.find(img => img.type === ImageType.primary);
+  const myImage = await getBase64(mainImage!.image.url);
 
   return (
     <section className="pt-20 lg:pt-28" id="contact">
@@ -19,9 +21,11 @@ const Contact: FC<ContactProps> = ({ component }) => {
             <Image
               src={mainImage!.image.url}
               alt={mainImage!.alt}
-              width={300}
-              height={500}
+              width={mainImage!.image.width}
+              height={mainImage!.image.height}
               quality={100}
+              blurDataURL={myImage}
+              placeholder="blur"
               className="object-cover w-full h-full object-top"
             />
           </div>

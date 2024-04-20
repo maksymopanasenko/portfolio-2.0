@@ -39,12 +39,12 @@ export const getFormElement = (element: SubComponent) => {
             name={element.subTitle}
             className="border-black rounded focus:border-black focus:outline-none focus:ring-white"
           />
-          <label htmlFor={element.id} className="px-2">
+          <label htmlFor={element.id} className="pl-2 pr-1">
             {element.title}
           </label>
-          {/* <Link href={element.button.page.slug} className=" text-blue-600">
+          <Link href={element.button.page.slug} className="text-blue-600">
             {element.button.title}
-          </Link> */}
+          </Link>
         </div>
       );
     default:

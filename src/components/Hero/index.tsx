@@ -1,19 +1,19 @@
-import { ComponentGeneral, ImageType } from '@/api/queries/getPage';
-import Link from 'next/link';
 import { FC } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ComponentGeneral, ImageType } from '@/api/queries/getPage';
+import getBase64 from '@/utils/getBase64';
 
 interface HeroProps {
   component: ComponentGeneral;
 }
 
-const Hero: FC<HeroProps> = ({ component }) => {
+const Hero: FC<HeroProps> = async ({ component }) => {
   const bgImg = component.images.find(img => img.type === ImageType.background);
+  const bluredImg = await getBase64(bgImg!.image.url);
 
   return (
-    <div
-      className="w-full bg-cover bg-60 xl:bg-half bg-no-repeat"
-      style={{ backgroundImage: `url(${bgImg?.image.url})` }}
-    >
+    <div className="w-full h-full relative">
       <div className="container mx-auto 2xl:pt-80 pt-44 pb-20 xl:py-44 flex flex-col items-start justify-end text-shadow">
         <h2 className="relative z-10 font-bold pb-4 pl-4 circle">{component.subTitle}</h2>
         <h1 className="font-bold md:leading-tight text-3xl md:text-5xl max-w-80 md:max-w-xl text-neutral-800">
@@ -31,6 +31,19 @@ const Hero: FC<HeroProps> = ({ component }) => {
           ))}
         </div>
       </div>
+      {bgImg && (
+        <Image
+          src={bgImg.image.url}
+          alt={bgImg.alt}
+          fill
+          sizes="100vw"
+          quality={100}
+          priority
+          className="object-cover z-[-1]"
+          blurDataURL={bluredImg}
+          placeholder="blur"
+        />
+      )}
     </div>
   );
 };

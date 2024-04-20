@@ -1,12 +1,17 @@
+'use client';
 import { ComponentGeneral } from '@/api/queries/getPage';
 import { getFormElement } from '@/utils/getFormElement';
-import { FC } from 'react';
+import { FC, MouseEventHandler } from 'react';
 
 interface ContactFormProps {
   component: ComponentGeneral;
 }
 
 const ContactForm: FC<ContactFormProps> = ({ component }) => {
+  const handleSubmit: MouseEventHandler<HTMLButtonElement> = e => {
+    e.preventDefault();
+  };
+
   return (
     <div>
       <p className="font-bold py-6">{component.description}</p>
@@ -19,7 +24,8 @@ const ContactForm: FC<ContactFormProps> = ({ component }) => {
         {component.subComponents.map(element => getFormElement(element))}
         <button
           type="submit"
-          className="w-3/4 sm:w-3/5 mt-2 py-3 px-6 font-bold bg-amber-500 mx-auto lg:w-full lg:m-0 shadow-lg"
+          className="w-3/4 sm:w-3/5 mt-2 py-3 px-6 font-bold bg-amber-500 mx-auto lg:w-full lg:m-0 shadow-lg hover:bg-amber-600 transition-all duration-300"
+          onClick={handleSubmit}
         >
           {component.buttons[0]?.title}
         </button>

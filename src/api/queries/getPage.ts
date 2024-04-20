@@ -28,6 +28,8 @@ export const GET_PAGES = gql`
             type
             image {
               url
+              width
+              height
             }
           }
           navigation {
@@ -58,6 +60,8 @@ export const GET_PAGES = gql`
                 type
                 image {
                   url
+                  width
+                  height
                 }
               }
               subComponents {
@@ -79,6 +83,8 @@ export const GET_PAGES = gql`
                   type
                   image {
                     url
+                    width
+                    height
                   }
                 }
               }
@@ -96,6 +102,8 @@ export const GET_PAGES = gql`
               type
               image {
                 url
+                width
+                height
               }
             }
           }
@@ -148,6 +156,8 @@ export interface ImageComponent {
   type: string;
   image: {
     url: string;
+    width: number;
+    height: number;
   };
 }
 
