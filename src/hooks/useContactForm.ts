@@ -47,7 +47,7 @@ export const useContactForm = () => {
     const urlEncodedData = getEncodedUrl(formData);
 
     try {
-      await axios.post('/favicon.ico', urlEncodedData, {
+      await axios.post('/reload.svg', urlEncodedData, {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       });
       setStatus(SubmittingStatus.success);

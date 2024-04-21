@@ -4,7 +4,7 @@ import { ComponentGeneral, SubmittingStatus } from '@/api/queries/getPage';
 import { useContactForm } from '@/hooks/useContactForm';
 import { getFormElement } from '@/utils/getFormElement';
 import Image from 'next/image';
-import loader from '../../../../public/reload.svg';
+import loader from '/reload.svg';
 
 interface ContactFormProps {
   component: ComponentGeneral;
