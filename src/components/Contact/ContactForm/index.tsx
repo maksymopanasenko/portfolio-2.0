@@ -4,7 +4,6 @@ import { ComponentGeneral, SubmittingStatus } from '@/api/queries/getPage';
 import { useContactForm } from '@/hooks/useContactForm';
 import { getFormElement } from '@/utils/getFormElement';
 import Image from 'next/image';
-import loader from '/reload.svg';
 
 interface ContactFormProps {
   component: ComponentGeneral;
@@ -35,7 +34,11 @@ const ContactForm: FC<ContactFormProps> = ({ component }) => {
             type="submit"
             className={`w-3/4 sm:w-3/5 py-3 px-6 font-bold bg-amber-500 mx-auto lg:w-full lg:m-0 shadow-lg hover:bg-amber-600 transition-all duration-300 ${disabledBtn}`}
           >
-            {isSubmitting ? <Image src={loader} alt="loader" className="m-auto" /> : component.buttons[0]?.title}
+            {isSubmitting ? (
+              <Image src="/reload.svg" alt="loader" width="24" height="24" className="m-auto" />
+            ) : (
+              component.buttons[0]?.title
+            )}
           </button>
         </div>
       </form>
