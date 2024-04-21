@@ -36,6 +36,15 @@ const config: Config = {
       height: {
         '128': '46rem',
       },
+      animation: {
+        status: 'fade .5s 2s forwards',
+      },
+      keyframes: {
+        fade: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+      },
     },
   },
   plugins: [require('@tailwindcss/forms')],

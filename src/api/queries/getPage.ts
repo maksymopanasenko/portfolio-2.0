@@ -177,6 +177,11 @@ export interface NavigationLink {
   anchorId: string;
 }
 
+export enum SubmittingStatus {
+  success = 'success',
+  failure = 'failure',
+}
+
 interface GetPagesData {
   pages: any;
 }
