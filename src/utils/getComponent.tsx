@@ -6,6 +6,7 @@ import ExperienceAndEducation from '@/components/ExperienceAndEducation';
 import ContentColumn from '@/components/ExperienceAndEducation/ContentColumn';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import PriceList from '@/components/PriceList';
 import Skills from '@/components/Skills';
 import Technologies from '@/components/Technologies';
 
@@ -25,6 +26,8 @@ export const getComponent = (component: ComponentGeneral) => {
       return <Technologies key={component.id} component={component} />;
     case 'skills':
       return <Skills key={component.id} component={component} />;
+    case 'priceList':
+      return <PriceList key={component.id} component={component} />;
     case 'contact':
       return <Contact key={component.id} component={component} />;
     case 'contactForm':

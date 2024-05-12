@@ -23,7 +23,6 @@ export const useContactForm = () => {
     formState: { errors },
   } = useForm<Inputs>({ resolver: yupResolver(contactValidationSchema) });
 
-  console.log(status);
   useEffect(() => {
     if (status === SubmittingStatus.success) {
       reset({
