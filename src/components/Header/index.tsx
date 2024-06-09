@@ -13,7 +13,8 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ component }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const openMenu = () => setIsOpen(prev => !prev);
+  const toggleMenu = () => setIsOpen(prev => !prev);
+  const closeMenu = () => setIsOpen(false);
 
   const visibleOverlay = isOpen ? 'visible opacity-100' : 'invisible opacity-0';
   const openedMenu = isOpen ? 'right-0' : 'right-full';
@@ -25,12 +26,12 @@ const Header: FC<HeaderProps> = ({ component }) => {
       >
         <div className={`h-screen w-full absolute transition-all duration-700 ${openedMenu}`}>
           <div className="h-screen p-10 relative w-72 lg:w-96 bg-amber-500">
-            <CgClose className="absolute top-5 right-5 cursor-pointer size-8 md:size-12" onClick={openMenu} />
-            <HeaderMenu navigation={component.navigation.links} />
+            <CgClose className="absolute top-5 right-5 cursor-pointer size-8 md:size-12" onClick={toggleMenu} />
+            <HeaderMenu navigation={component.navigation.links} onClose={closeMenu} />
           </div>
         </div>
       </div>
-      <HiMenuAlt3 className="cursor-pointer size-8 md:size-12" onClick={openMenu} />
+      <HiMenuAlt3 className="cursor-pointer size-8 md:size-12" onClick={toggleMenu} />
     </div>
   );
 };
