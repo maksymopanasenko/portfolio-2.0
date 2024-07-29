@@ -1,4 +1,4 @@
-import { ComponentGeneral } from '@/api/queries/getPage';
+import { ComponentGeneral, Page } from '@/api/queries/getPage';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
 import ContactForm from '@/components/Contact/ContactForm';
@@ -7,10 +7,11 @@ import ContentColumn from '@/components/ExperienceAndEducation/ContentColumn';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import PriceList from '@/components/PriceList';
+import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import Technologies from '@/components/Technologies';
 
-export const getComponent = (component: ComponentGeneral) => {
+export const getComponent = (component: ComponentGeneral, pages?: Page[]) => {
   switch (component.type) {
     case 'header':
       return <Header key={component.id} component={component} />;
@@ -32,6 +33,8 @@ export const getComponent = (component: ComponentGeneral) => {
       return <Contact key={component.id} component={component} />;
     case 'contactForm':
       return <ContactForm key={component.id} component={component} />;
+    case 'projects':
+      return <Projects key={component.id} component={component} projectPages={pages as Page[]} />;
     default:
       break;
   }

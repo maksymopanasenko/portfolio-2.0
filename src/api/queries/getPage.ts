@@ -7,6 +7,7 @@ export const GET_PAGES = gql`
       id
       title
       slug
+      type
       components(first: 100) {
         ... on ComponentGeneral {
           id
@@ -148,6 +149,7 @@ export interface Page {
   title: string;
   slug: string;
   components: ComponentGeneral[];
+  type: string;
 }
 
 export interface ImageComponent {

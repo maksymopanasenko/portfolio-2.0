@@ -8,10 +8,11 @@ interface GetPagesResult {
 const Home = async () => {
   const { pages }: GetPagesResult = await getPages();
   const homePage = pages.find(page => !page.slug);
+  const projectPages = pages.filter(({ type }) => type === 'project_page');
 
   return (
     <main className="min-h-screen pb-20">
-      <>{homePage?.components.map(component => getComponent(component))}</>
+      <>{homePage?.components.map(component => getComponent(component, projectPages))}</>
     </main>
   );
 };
